@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cat-facts-app
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
