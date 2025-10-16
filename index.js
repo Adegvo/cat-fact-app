@@ -1,10 +1,12 @@
-
+import express from "express";
+import cors from "cors";
 import user from "./data.js";
 import getCatFact from "./catFact.js";
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(cors());
 app.get("/me", async (req, res) => {
   try {
     const fact = await getCatFact();
