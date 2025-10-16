@@ -1,12 +1,11 @@
-import axios from 'axios';
-
-async function getCatFact() {
+const getCatFact = async () => {
   try {
-    const response = await axios.get('https://catfact.ninja/fact');
-    return response.data;
+    const response = await fetch("https://catfact.ninja/fact");
+    const data = await response.json();
+    return data.fact;
   } catch (error) {
-    throw new Error('Failed to fetch cat fact');
+    console.error("Error fetching cat fact:", error);
+    throw error;
   }
-}
-
+};
 export default getCatFact;
